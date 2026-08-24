@@ -1,0 +1,7 @@
+.cart-head{gap:12px}
+.cart-actions{display:flex;gap:8px;align-items:flex-start}
+.order-reference{color:#cfc2b3!important;font-size:.7rem!important;display:block!important}
+.order-reference button{color:#e9bf78!important;font-size:.7rem!important;font-weight:700;padding:0}
+.restore-message{background:#284d3b;border:1px solid #8dc4a4;border-radius:11px;color:#dff6e8;font-size:.73rem;line-height:1.4;margin-top:12px;padding:9px}
+.restore-message i{margin-right:5px}
+@media(max-width:420px){.cart-head{display:block}.cart-actions{margin-top:10px}}
