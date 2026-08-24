@@ -2,6 +2,12 @@
 
 Sitio comercial independiente con catálogo interactivo, selector de terminaciones, carrito de cotización, armado de frases, Pack PROMO 2026 y salida detallada por WhatsApp.
 
+## Ver la web publicada
+
+**[Abrir Family Fibro desde cualquier computadora](https://juli101010.github.io/family-fibro-web/)**
+
+No requiere instalar VS Code, Git, Python ni Odoo para verla. Si se descarga el proyecto como ZIP, también se puede abrir el archivo `ABRIR_WEB.url`.
+
 ## Abrir en VS Code
 
 ```powershell
