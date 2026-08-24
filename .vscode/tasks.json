@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Family Fibro: iniciar web",
+      "type": "shell",
+      "command": "${workspaceFolder}\\start.cmd",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Family Fibro: abrir en navegador",
+      "type": "shell",
+      "command": "Start-Process http://127.0.0.1:8080",
+      "dependsOn": "Family Fibro: iniciar web",
+      "problemMatcher": []
+    }
+  ]
+}
