@@ -9,5 +9,12 @@ where py >nul 2>nul
 if %errorlevel%==0 (
   py -m http.server 8080
 ) else (
-  python -m http.server 8080
+  where node >nul 2>nul
+  if %errorlevel%==0 (
+    node -e "require('http').createServer((req,res)=>require('fs').createReadStream('.'+(req.url==='/'?'/index.html':req.url)).on('error',()=>{res.statusCode=404;res.end()}).pipe(res)).listen(8080)"
+  ) else (
+    echo No se encontro Python ni Node.js. Abre la pagina publicada:
+    echo https://juli101010.github.io/family-fibro-web/
+    pause
+  )
 )
