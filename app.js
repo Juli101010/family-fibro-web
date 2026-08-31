@@ -155,7 +155,33 @@ document.querySelector("#open-letter-modal").addEventListener("click",()=>openPi
 document.querySelector("#close-picker-modal").addEventListener("click",()=>modal.close());
 modal.addEventListener("click",event=>{if(event.target===modal)modal.close()});
 document.querySelector("#modal-add-word").addEventListener("click",()=>addWord(document.querySelector("#modal-word-input")));
+const workCards=[...document.querySelectorAll(".work-card")];
+let workIndex=0;
+function syncWorkVideoState(){
+  workCards.forEach((card,index)=>{
+    const video=card.querySelector("video");
+    if(!video)return;
+    if(index===workIndex){
+      video.play().catch(()=>{});
+    }else{
+      video.pause();
+      video.currentTime=0;
+    }
+  });
+}
+function renderWorkCards(){
+  workCards.forEach((card,index)=>{
+    const diff=(index-workIndex+workCards.length)%workCards.length;
+    card.classList.remove("left","center","right");
+    if(diff===0)card.classList.add("center");
+    else if(diff===1)card.classList.add("right");
+    else card.classList.add("left");
+  });
+  syncWorkVideoState();
+}
+document.querySelector(".work-arrow.prev").addEventListener("click",()=>{workIndex=(workIndex-1+workCards.length)%workCards.length;renderWorkCards();});
+document.querySelector(".work-arrow.next").addEventListener("click",()=>{workIndex=(workIndex+1)%workCards.length;renderWorkCards();});
 const restoredOrder=restoreActiveOrder();
 document.querySelectorAll(".finish").forEach(button=>button.classList.toggle("active",button.dataset.finish===state.finish));
 document.querySelector("#restore-message").hidden=!restoredOrder;
-renderCarousel("number");renderCarousel("letter");renderCart();
+renderCarousel("number");renderCarousel("letter");renderWorkCards();renderCart();
